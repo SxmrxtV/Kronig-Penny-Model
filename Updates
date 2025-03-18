@@ -1,0 +1,19 @@
+Prototype 1.0:
+This is the first step towards actually building an interractive graph for the Kronig Penny Model. 
+Since we have to incorporate 3 different sliders, 2 for the nature of the potential barrier (height and width) and 1 for the basis vector a, we first had to learn how to incorporate sliders in the final graph. 
+Although multiple methods exist to incorporate a slider, some of them being
+1. Matplotlib
+2. Plotly
+3. PyQtGraphs
+4. Bookeh
+5. ipywidgets 
+We have chosen to move forward with Matplotlib, specifically matplotlib.widgets.Slider for 4 reasons:
+1. Familiarity with matplotlib:
+   We've been learning how to use matplotlib for around 3 semesters (1, 2 and 3) and are simply better acquainted with it.
+2. Matplotlib is the most efficient library for scientific plotting
+3. Easier customisation
+4. Capacity to work offline
+
+Before we start building the final project, it is important that we familiarise ourselves with sliders, thus we have decides to go through with the first prototype. 
+Prototype 1.0 is quite simple, it is an extremely basic plot representing a One Dimensiona Wave Equation x = a*sin(wt+phi), where x represents the displacement, a rpresents the maximum (& minimum) amplitude of the wave, w represents the angular frequency, t represents time and phi represents the phase difference. 
+Such an easy plot will allow us to focus most of our attention to just the concept of slider, its functionality, syntax, etc. and will help us in making sure that the sliders for the final project are perfect (in function and aesthetic). 
