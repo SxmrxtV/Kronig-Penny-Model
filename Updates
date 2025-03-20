@@ -1,3 +1,4 @@
+11/03/2025
 Prototype 1.0:
 This is the first step towards actually building an interractive graph for the Kronig Penny Model. 
 Since we have to incorporate 3 different sliders, 2 for the nature of the potential barrier (height and width) and 1 for the basis vector a, we first had to learn how to incorporate sliders in the final graph. 
