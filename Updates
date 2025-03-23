@@ -1,3 +1,9 @@
+Group:
+Samrat, 2330283
+Suhail, 2330265
+Uttara, 2330258
+
+
 11/03/2025
 Prototype 1.0:
 This is the first step towards actually building an interractive graph for the Kronig Penny Model. 
@@ -18,3 +24,27 @@ We have chosen to move forward with Matplotlib, specifically matplotlib.widgets.
 Before we start building the final project, it is important that we familiarise ourselves with sliders, thus we have decides to go through with the first prototype. 
 Prototype 1.0 is quite simple, it is an extremely basic plot representing a One Dimensiona Wave Equation x = a*sin(wt+phi), where x represents the displacement, a rpresents the maximum (& minimum) amplitude of the wave, w represents the angular frequency, t represents time and phi represents the phase difference. 
 Such an easy plot will allow us to focus most of our attention to just the concept of slider, its functionality, syntax, etc. and will help us in making sure that the sliders for the final project are perfect (in function and aesthetic). 
+
+13/03/2025
+Prototype 1.1:
+The 2nd step is to generate a standard graph for the Kronig-Penney Model in python using matplotlib.
+We have made a standard graph for a silicon crystal, where
+E (energy of an electron) = 1.12 eV 
+a = 0.5 nanometers,
+therefore, assuming the effective mass of an electron to be equal to the standard mass, 
+we get 
+Alpha = 5.421074 * 10^9
+Alpha*a = 2.94364
+P = 4.44752 (assuming V0*b = 10^-28)
+
+This reduces the equation to
+4.44752*Sin(Alpha*a)/Alpha*a + Cos(Alpha*a)
+
+For the purpose of this graph we have taken the range for Alpha*a as [-10Alpha*a, +10Alpha*a}
+
+for the next update, we will try to incorporate the sliders into this graph
+
+
+16/03/2025
+Successfully implemented sliders that change the height and width of the potential barriers using.
+Problem left to solve: Implement slider for ‘a’, i.e. Lattice constant.
