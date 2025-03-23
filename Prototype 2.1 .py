@@ -32,9 +32,9 @@ ax_a=plt.axes([0.2, 0.05, 0.65, 0.03])
 #v_0 = 10**(-14)
 #b_0 = 10**(-14)
 
-slider_v = sl(ax_v, 'V (Height of Potential Barrier)', 10**(-16), 10**(-13), valinit=10**(-14))
-slider_b = sl(ax_b, 'B (Width of Potential Barrier)', 10**(-16), 10**(-13), valinit=10**(-14))
-slider_a = sl(ax_a, 'a (Lattice Constant)', 0.543*10**(-10), 0.543*10**(-8), valinit=0.543* 10**(-9))
+slider_v = sl(ax_v, 'V (Height of Potential Barrier)', 10**(-16), 2*10**(-14), valinit=10**(-14))
+slider_b = sl(ax_b, 'B (Width of Potential Barrier)', 10**(-16), 2*10**(-14), valinit=10**(-14))
+slider_a = sl(ax_a, 'a (Lattice Constant)', 0.543*10**(-10), 2*0.543*10**(-9), valinit=0.543* 10**(-9))
 
 def update(val):
     KronigPenney(slider_v.val, slider_b.val, slider_a.val)
