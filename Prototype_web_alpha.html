@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kronig-Penney Model</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.0/full/pyodide.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Kronig-Penney Model</h1>
+
+    <div>
+        <label>V (Height of Potential Barrier): </label>
+        <input type="range" id="slider_v" min="1e-16" max="2e-14" step="1e-16" value="1e-14" oninput="update()">
+        <span id="v_value">1e-14</span>
+    </div>
+
+    <div>
+        <label>B (Width of Potential Barrier): </label>
+        <input type="range" id="slider_b" min="1e-16" max="2e-14" step="1e-16" value="1e-14" oninput="update()">
+        <span id="b_value">1e-14</span>
+    </div>
+
+    <div>
+        <label>a (Lattice Constant): </label>
+        <input type="range" id="slider_a" min="5.43e-10" max="1.086e-9" step="1e-11" value="5.43e-10" oninput="update()">
+        <span id="a_value">5.43e-10</span>
+    </div>
+
+    <img id="plot" />
+
+    <script>
+        async function main() {
+            try {
+                window.pyodide = await loadPyodide();
+                await pyodide.loadPackage(['numpy', 'matplotlib']);
+                console.log("Pyodide loaded successfully.");
+
+                // Load external Python code
+                const response = await fetch('pythoncode.py');
+                const pythonCode = await response.text();
+                await pyodide.runPythonAsync(pythonCode);
+            } catch (err) {
+                console.error("Error loading Pyodide or Python code:", err);
+            }
+        }
+
+        async function update() {
+            try {
+                let v = parseFloat(document.getElementById("slider_v").value);
+                let b = parseFloat(document.getElementById("slider_b").value);
+                let a = parseFloat(document.getElementById("slider_a").value);
+
+                document.getElementById("v_value").textContent = v;
+                document.getElementById("b_value").textContent = b;
+                document.getElementById("a_value").textContent = a;
+
+                await pyodide.runPythonAsync(`update_plot(${v}, ${b}, ${a})`);
+            } catch (err) {
+                console.error("Error updating plot:", err);
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>
